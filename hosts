@@ -1,0 +1,10 @@
+# This is a LOCAL hosts file.
+# In same dir as playbook.
+# Edit the LOCAL config file to point to it.
+#
+
+[new_cent7]
+9.48.203.147
+9.48.203.12
+
+

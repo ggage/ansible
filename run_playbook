@@ -1,0 +1,46 @@
+#!/usr/bin/env ansible-playbook
+---
+# This is a copy of new_cent7_playbool.yml with 1st line added.
+# Now it is executable.
+
+# playbook for new systems.
+# update all pkgs
+# install Server with GUI
+#
+- hosts: new_cent7
+#  remote_user: ggage
+  become: yes
+
+  tasks:
+  - name: restart sshd
+    service:
+      name: sshd
+      state: restarted
+  - name: check sudo id
+    #shell: /usr/bin/echo "HI"
+    shell: /usr/bin/id
+  #- name: Update OS - all pkgs
+    #yum:
+      #name: '*'
+      #state: latest
+  #- name: Server with GUI Install
+    #yum:
+      #name: "@^Server with GUI"
+      #state: present
+  #- name: Change to GUI environment
+    #command: /usr/bin/systemctl set-default graphical.target 
+  #- name: List Ansible packages
+    #yum:
+      #list: ansible
+  - name: Print motd
+    command: cat /etc/motd
+    register: mymotd
+  - name: Copy a bogus config file to /tmp
+    copy: src=files/bogus.cfg dest=/tmp/bogus.cfg
+  - name: Make a link to cfg file
+    file: >
+      dest=/tmp/boguslink
+      src=/tmp/bogus.cfg
+      state=link
+
+

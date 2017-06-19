@@ -1,12 +1,13 @@
 
-A word about Version Control.
+A word about Version Control.    - ggage 6/2017
+
 If you have system changes over time, version control the playbook(s), ansible.cfg, and hosts file by putting ALL in same dir and
 running from that dir.  The config file will take precedence and point to the local hosts (not /etc/ansible/hosts)
 
 
 Use the cfg file to set run_user as ggage instead of playbook.
 
-The hosts file only has the new_cent7 category where the default hosts
+The hosts file only has the new_cent7 group where the default hosts
 file has a bigger list.
 
 
